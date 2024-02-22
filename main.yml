@@ -1,0 +1,42 @@
+---
+# This playbook is used to install packages and setup the environment for a new Fedora installation
+- hosts: localhost
+  become: yes
+  vars_files:
+    - default.config.yml  # Contains the default basic configuration data
+    - packages.yml        # Contains the list of packages to install
+
+  tasks:
+  - name: Ensure dnf packages are installed
+    dnf:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ dnf_packages }}"
+
+  # TODO: dnf group installs in ansible seem to be broken ?
+  # - name: Ensure dnf package groups are installed
+  #   dnf:
+  #     name: "{{ item }}"
+  #     state: present
+  #     group: yes
+  #   loop: "{{ dnf_group_packages }}"
+
+  - name: Ensure flatpak packages are installed
+    flatpak:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ flatpak_packages }}"
+
+  - name: Ensure pip packages are installed
+    pip:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ pip_packages }}"
+
+  - name: Print PATH variable
+    debug:
+      var: lookup('env','PATH')
+
+  # TODO: Not yet working correctly, checking if cargo is already installed is not working correctly
+  # - name: Install Rust
+  #   include_tasks: tasks/install_rust.yml

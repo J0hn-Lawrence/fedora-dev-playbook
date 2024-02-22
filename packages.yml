@@ -1,0 +1,65 @@
+---
+# This file contains the packages that will be installed on the system
+
+dnf_packages:
+  # Development
+  - git
+  - vim
+
+  # Monitoring
+  - htop
+  - btop
+
+  # Virtualization
+  - gnome-boxes
+  - podman
+
+  # Network and communication
+  - wireguard-tools
+
+  # Flashing tools
+  - mediawriter
+
+  # Desktop configuration
+  - gnome-tweaks 
+
+
+dnf_group_packages:
+  - "Development Tools"
+
+
+flatpak_packages:
+
+  # Development
+  - com.visualstudio.code
+
+  # Office and productivity
+  - org.mozilla.Firefox
+  - com.github.jeromerobert.pdfarranger
+  - org.onlyoffice.desktopeditors
+  - com.mattjakeman.ExtensionManager
+  - org.torproject.torbrowser-launcher
+  - com.spotify.Client
+  - org.signal.Signal
+
+  # Network and communication
+  - org.qbittorrent.qBittorrent
+  - org.remmina.Remmina
+  - org.wireshark.Wireshark
+
+  # Flashing tools
+  - org.raspberrypi.rpi-imager
+
+  # Image and video stuff
+  - com.belmoussaoui.Obfuscate
+  - org.gnome.gitlab.YaLTeR.Identity
+  - fr.romainvigier.MetadataCleaner
+  - org.videolan.VLC
+
+  # System tools
+  - dev.geopjr.Collision
+  - net.sapples.LiveCaptions
+
+
+pip_packages:
+  - numpy

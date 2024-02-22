@@ -1,0 +1,4 @@
+vars:
+  user: "{{ lookup('env', 'USER') }}"
+  dotfiles_repo: "git@github.com:J0hn-Lawrence/dotfiles.git"  # Change this to your dotfiles repo
+  ssh_key: ".ssh/id_ed25519"                                  # Change this to your ssh key path
