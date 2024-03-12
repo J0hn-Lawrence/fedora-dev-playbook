@@ -16,6 +16,7 @@ dnf_packages:
 
   # Network and communication
   - wireguard-tools
+  - wireshark
 
   # Flashing tools
   - mediawriter
@@ -45,7 +46,6 @@ flatpak_packages:
   # Network and communication
   - org.qbittorrent.qBittorrent
   - org.remmina.Remmina
-  - org.wireshark.Wireshark
 
   # Flashing tools
   - org.raspberrypi.rpi-imager
